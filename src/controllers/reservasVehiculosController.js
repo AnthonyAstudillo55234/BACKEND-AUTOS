@@ -94,8 +94,8 @@ const ActualizarReserva = async (req, res) => {
         if (!cliente) {
             return res.status(400).json({ msg: 'Cliente no registrado' })
         }
-        const vehiculos = await vehiculos.find({_id: {$in: id_vehiculo}})
-        if (vehiculos.length !== id_vehiculo.length) {
+        const vehiculo = await vehiculos.findById(id_vehiculo)
+        if (!vehiculo) {
             return res.status(400).json({ msg: 'Vehiculo no registrado' })
         }
         const reserva = await reservasVehiculos.findById(id)
