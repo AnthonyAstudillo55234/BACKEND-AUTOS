@@ -110,10 +110,6 @@ const ActualizarVehiculo = async (req, res) => {
         if (kilometraje < 1) {
         return res.status(400).json({ msg: "El kilometraje debe ser mayor a 0" });
         }
-        const vehiculo = await crearAutos.findOne({ nombre });
-        if (vehiculo) {
-        return res.status(400).json({ msg: "Vehiculo ya registrado" });
-        }
         const validacionFecha = /^\d{4}-\d{2}-\d{2}$/;
         if (!validacionFecha.test(anio_fabrication)) {
         return res.status(400).json({ msg: "Fecha de ingreso no válida usar este formato YYYY-MM-DD" });
